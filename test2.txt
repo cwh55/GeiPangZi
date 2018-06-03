@@ -1,0 +1,218 @@
+﻿https://hackmd.io/s/H1qS0gmyQ   #动态接口授权架构
+
+
+http://work-flow.work/zentao/my/ 禅道
+
+
+数据库地址： https://docs.google.com/spreadsheets/d/1pOaSIOMphN8Z9g9el764jAlLEDFy82zznmjl-4WRACs/edit#gid=607170176
+
+
+http://172.16.35.190/Bonobo.Git.Server/Repository/Detail/22809c99-21ef-4909-bc60-208fe4ae18f2  #GIT
+http://118.143.61.228/seanlin/NewFlashPay  新GIT
+
+
+
+
+
+
+
+
+ "TestConnection": "Data Source=ITDEVPH055\\DSADSASD;Initial Catalog=SchoolInfo;Integrated Security=True",
+ "DefaultConnection": "Data Source=ITDEVPH\\SQLEXPRESS;Initial Catalog=flashpay;Persist Security Info=True;User ID=user;Password=1qaz2wsx"
+
+
+
+
+https://github.com/mgyongyosi/VuejsSSRSample/blob/master/VuejsSSRSample/Views/Home/Index.cshtml
+
+https://www.yimo.link/dotnet/mvc-core%E5%90%8E%E5%8F%B0%E6%9D%83%E9%99%90%E6%A8%A1%E5%9D%97%E7%9A%84%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA/
+
+https://vuematerial.io/getting-started
+
+https://vue-loader-v14.vuejs.org/zh-cn/
+
+https://vuex.vuejs.org/zh/
+
+
+
+npm run build
+npm install vue-material --save
+npm install -g vue-cli
+
+
+
+
+
+http://www.cnblogs.com/wangjieguang/p/core-dapper-swagger.html
+
+http://autofaccn.readthedocs.io/zh/latest/lifetime/disposal.html#id6https://docs.microsoft.com/en-us/aspnet/core/fundamentals/servers/aspnet-core-module?view=aspnetcore-2.0
+http://www.cnblogs.com/JustRun1983/archive/2013/03/28/2981645.html
+
+http://www.csharpkit.com/microservice.html 
+
+https://blog.johnwu.cc/article/asp-net-core-filters.html 
+
+
+https://docs.microsoft.com/zh-cn/dotnet/standard/microservices-architecture/architect-microservice-container-applications/microservices-architecture
+https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-containers/swarm-mode
+
+
+https://windsting.github.io/little-aspnetcore-book/book/chapters/deploy-the-application/deploy-to-azure.html
+
+https://school.azure.cn/courses/57  #Azure
+
+
+
+k8s docker集群搭建、Swarm模式、Docker Compose、/bin/bash、PowerShell
+
+eventvwr.msc事件查看器命令、Windows键+BREAK打开“系统属性”对话框
+
+MiniProfiler性能监控、REST，以及RESTful  、RPC 、AOP、DI （依赖注入）、Autofac(IOC控制反转轻量级框架)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//首先，在DI中注册服务认证所需的服务：
+            services.AddAuthentication(options =>
+            {
+                options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = Microsoft.AspNetCore.Authentication.OpenIdConnect.OpenIdConnectDefaults.AuthenticationScheme;
+            })
+                .AddCookie()
+                .AddOpenIdConnect(o =>
+                {
+                    o.ClientId = "server.hybrid";
+                    o.ClientSecret = "secret";
+                    o.Authority = "https://demo.identityserver.io/";
+                    o.ResponseType = Microsoft.IdentityModel.Protocols.OpenIdConnect.OpenIdConnectResponseType.CodeIdToken;
+                });
+
+
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme) //增加Cookie认证
+            .AddCookie(
+                options=>{
+                    options.LoginPath = "/Account/Login1";
+                    options.AccessDeniedPath = "/Home/Abount";
+                }
+            ); //这里是可以设置默认的授权跳转的
+
+
+
+app.UseAuthentication(); //增加授权中间件
+
+
+
+
+ using (var entry = memoryCache.CreateEntry("test"))
+            {
+                entry.Value = "122332";
+            }
+
+            var exist = memoryCache.TryGetValue("test",out var value);
+
+
+
+            memoryCache.Set("test2", "AAABBBCCC",
+                       new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromDays(2))
+                   );
+
+           var sdf= memoryCache.GetOrCreate("test2", (entry) => { return entry.Value; });
+
+            var exist2 = memoryCache.TryGetValue("test2", out var value2);
+
+
+
+
+
+var component = require('./component.js');
+component();
+
+// component.js
+module.exports = function(){
+  alert('component');
+}
+
+// webpack.config.js
+var path = require('path')
+module.exports = {
+  // bundle入口
+  entry: ['./src/index'], // 在index 檔案後的 .js 副檔名是可選的
+  // bundle输出
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'  // 入口那里不变，这里如果写成[name].js，最后输出的文件为main.js
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1、什么是Repository模式?
+
+Repository是隔离在数据访问层和业务逻辑层之间的。它提供业务逻辑各种对象，使得业务逻辑代码不需要关心数据是如何存储和获取的。
+Repository模式的好处是它为逻辑和数据访问解耦，使得它们之间没有互相依赖。
+
+
+
+
+2、EF Core不再有Enable-Migrations命令。迁移是“默认”启用的。使用添加新迁移Add-Migration。EF数据迁移
+
+EF的事务机制，首先要理解这2个类：TransactionScope和DbContext。
+
+
+
+
+
+
+
+
+
+
